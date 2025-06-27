@@ -1,0 +1,73 @@
+:root {
+  /* Gemini Dark Mode Color Palette */
+  --color-bg-primary: #1e1e1e; /* Main background */
+  --color-bg-secondary: #2d2d2d; /* Sidebar, header secondary bg */
+  --color-bg-tertiary: #3c3c3c; /* Input fields, deeper elements */
+  --color-border: #444; /* Borders and dividers */
+
+  --color-text-primary: #e0e0e0; /* Main text color */
+  --color-text-secondary: #aaaaaa; /* Secondary text, placeholders */
+  --color-text-highlight: #8ab4f8; /* Gemini blue-ish highlight */
+  --color-text-active-sidebar: #8ab4f8; /* Active sidebar item text */
+  --color-text-button: #e0e0e0; /* Button text */
+
+  --color-sidebar-active-bg: rgba(138, 180, 248, 0.1); /* Active sidebar item background */
+  --color-button-primary: #8ab4f8; /* Primary button background */
+  --color-button-hover: #7eaad8; /* Primary button hover */
+
+  /* Fonts */
+  --font-main: 'Roboto', sans-serif;
+  --font-google-sans: 'Google Sans', sans-serif;
+
+  /* Spacing */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Border Radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-circle: 50%;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main App Container Layout */
+.app-container {
+  display: flex;
+  min-height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevent body scroll if content overflows */
+}
+
+/* Hide scrollbar for a cleaner look, but keep functionality */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+  border-radius: var(--border-radius-md);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-secondary);
+  border-radius: var(--border-radius-md);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-highlight);
+}
