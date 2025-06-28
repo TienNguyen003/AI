@@ -121,20 +121,13 @@ const MainContent = () => {
               {msg.type === "text" && (
                 <div className={`message-bubble ${msg.sender} markdown-math`}>
                   <ReactMarkdown
-                    children={convertLatexDelimiters(msg.text)}
                     remarkPlugins={[remarkGfm, remarkMath]}
                     rehypePlugins={[rehypeRaw, rehypeKatex]}
                     components={{
                       code({ node, inline, className, children, ...props }) {
                         const match = /language-(\w+)/.exec(className || "");
                         return !inline && match ? (
-                          <SyntaxHighlighter
-                            style={oneDark}
-                            language={match[1]}
-                            PreTag="div"
-                            customStyle={{ borderRadius: "8px", padding: "1em" }}
-                            {...props}
-                          >
+                          <SyntaxHighlighter style={oneDark} language={match[1]} PreTag="div" {...props}>
                             {String(children).replace(/\n$/, "")}
                           </SyntaxHighlighter>
                         ) : (
@@ -144,7 +137,9 @@ const MainContent = () => {
                         );
                       },
                     }}
-                  />
+                  >
+                    {msg.text}
+                  </ReactMarkdown>
                 </div>
               )}
               {msg.sender === "user" && <div className="message-avatar user-avatar">Bạn</div>}
